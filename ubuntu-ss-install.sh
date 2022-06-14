@@ -82,10 +82,10 @@ install_mbedtls(){
     if [ -f /usr/lib/libmbedtls.a ];then
         echo "\033[1;32mMbedTLS already installed, skip.\033[0m"
     else
-        if [ ! -f mbedtls-$MBEDTLS_VER-gpl.tgz ];then
+        if [ ! -f mbedtls-$MBEDTLS_VER.tgz ];then
             wget https://src.fedoraproject.org/repo/pkgs/mbedtls/mbedtls-2.28.0.tar.gz/sha512/907867edf532ba3b099f4fb7ce31f5773ceceb072a8d067b1d830e879d541f92f401d64f13bbe6b4eb0845e58bb765d7d28896be414bb0fc7ac5b3876066be5f/mbedtls-2.28.0.tar.gz
         fi
-        tar xf mbedtls-$MBEDTLS_VER-gpl.tgz
+        tar xf mbedtls-$MBEDTLS_VER.tgz
         cd mbedtls-$MBEDTLS_VER
         make SHARED=1 CFLAGS=-fPIC
         make DESTDIR=/usr install
